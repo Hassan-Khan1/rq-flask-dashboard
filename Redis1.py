@@ -17,7 +17,7 @@ def print_numbers(url):
   list.insert(0,ss)
   ss = [random.choice('0123456789') for _ in range(1,5)]
   ss2 = "".join(ss)  
-  Image1  = urllib.request.urlretrieve(list[0],f'Imagee{ss2}.jpg')
+  Image1  = urllib.request.urlretrieve(list[0],f'images/Imagee{ss2}.jpg')
   print(ss2, ' : ',list[0])
   print('-------END--------')
   # brust=True
