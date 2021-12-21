@@ -21,29 +21,24 @@ def initialize__queue(queue_name):
 
   queue = Queue(queue_name, connection=Redis())
   # scheduler = Scheduler(queue_names,connection=Redis())
-  
   # print(queue.started_job_registry)  # Returns StartedJobRegistry
   # queue.deferred_job_registry   # Returns DeferredJobRegistry
   # queue.finished_job_registry  # Returns FinishedJobRegistry
   # queue.failed_job_registry  # Returns FailedJobRegistry
   # print(queue.scheduled_job_registry)  # Returns ScheduledJobRegistry
   # burst = False
-
-  # job = queue.enqueue(print_numbers, 'https://picsum.photos/v2/list')
+  job = queue.enqueue(print_numbers, 'https://picsum.photos/v2/list')
   # job = queue.enqueue_in(timedelta(milliseconds=2), print_numbers,'https://picsum.photos/v2/list')
   # job = queue.enqueue_at(datetime(2021, 12, 21, 16, 16,00), print_numbers, 'https://picsum.photos/v2/list')
   
-  print("ASDFGHJ")
 
   print(job in queue) 
   print('Job enqueued_at: ' , job.enqueued_at)
   registry = ScheduledJobRegistry(queue=queue)
   print(job in registry)  
-# 
 
   worker = Worker(queue)
   worker.work()
-
 
 with Connection():
   initialize__queue('Queue_ONe')
@@ -57,14 +52,8 @@ if __name__ == "__main__":
 # def image_download(url):
 #     # resp = requests.get(url)
 #     # return len(resp.text.split())
-
-
 #     r = requests.get(url)
 #     pak_json = r.json()
-
-        
-
-
 
 # redis_conn = Redis()
 # q = Queue(connection=redis_conn)  # no args implies the default queue
